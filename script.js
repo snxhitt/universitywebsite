@@ -40,7 +40,7 @@ if (admissionForm) {
 
 // --- Service Worker Registration ---
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    const registerServiceWorker = () => {
         navigator.serviceWorker.register('sw.js')
             .then((registration) => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -48,5 +48,11 @@ if ('serviceWorker' in navigator) {
             .catch((err) => {
                 console.log('ServiceWorker registration failed: ', err);
             });
-    });
+    };
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(registerServiceWorker);
+    } else {
+        window.addEventListener('load', registerServiceWorker);
+    }
 }

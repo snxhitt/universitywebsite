@@ -6,8 +6,10 @@
     <title>Global Tech University</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"></noscript>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -63,19 +65,19 @@
         <p>Experience world-class infrastructure and learning environments.</p>
         <div class="row">
             <div class="campus-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="London" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1015/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1015/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1015/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="London" loading="lazy" decoding="async">
                 <div class="layer">
                     <h3>LONDON</h3>
                 </div>
             </div>
             <div class="campus-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="New York" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1016/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1016/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1016/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="New York" loading="lazy" decoding="async">
                 <div class="layer">
                     <h3>NEW YORK</h3>
                 </div>
             </div>
             <div class="campus-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="Washington" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1018/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1018/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1018/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="Washington" loading="lazy" decoding="async">
                 <div class="layer">
                     <h3>WASHINGTON</h3>
                 </div>
@@ -83,23 +85,22 @@
         </div>
     </section>
 
-    <!-- Facilities -->
     <section class="facilities">
         <h1>Our Facilities</h1>
         <p>We provide the best facilities for our students.</p>
         <div class="row">
             <div class="facilities-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="Library" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1020/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1020/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1020/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="Library" loading="lazy" decoding="async">
                 <h3>World Class Library</h3>
                 <p>Thousands of books and digital resources available 24/7.</p>
             </div>
             <div class="facilities-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="Playground" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1021/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1021/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1021/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="Playground" loading="lazy" decoding="async">
                 <h3>Largest Playground</h3>
                 <p>Sports complex including football, basketball, and tennis courts.</p>
             </div>
             <div class="facilities-col">
-                <img width="1000" height="667" src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60&fm=webp" alt="Cafeteria" loading="lazy">
+                <img width="800" height="533" src="https://picsum.photos/id/1022/800/533?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1022/400/267?auto=format&fit=crop&q=60 400w, https://picsum.photos/id/1022/800/533?auto=format&fit=crop&q=60 800w" sizes="(max-width: 768px) 90vw, 32vw" alt="Cafeteria" loading="lazy" decoding="async">
                 <h3>Tasty and Healthy Food</h3>
                 <p>Hygienic cafeteria serving nutritious meals for students.</p>
             </div>
@@ -112,7 +113,7 @@
         <p>Hear from our alumni about their experience at Global Tech.</p>
         <div class="row">
             <div class="testimonial-col">
-                <img width="500" height="500" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60&fm=webp" alt="User1" loading="lazy">
+                <img width="400" height="400" src="https://picsum.photos/id/1027/400/400?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1027/200/200?auto=format&fit=crop&q=60 200w, https://picsum.photos/id/1027/400/400?auto=format&fit=crop&q=60 400w" sizes="(max-width: 768px) 90vw, 20vw" alt="User1" loading="lazy" decoding="async">
                 <div>
                     <p>Global Tech University provided me with the skills and network I needed to launch my career in AI.</p>
                     <h3>Christine Berkley</h3>
@@ -120,7 +121,7 @@
                 </div>
             </div>
             <div class="testimonial-col">
-                <img width="500" height="500" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60&fm=webp" alt="User2" loading="lazy">
+                <img width="400" height="400" src="https://picsum.photos/id/1028/400/400?auto=format&fit=crop&q=60" srcset="https://picsum.photos/id/1028/200/200?auto=format&fit=crop&q=60 200w, https://picsum.photos/id/1028/400/400?auto=format&fit=crop&q=60 400w" sizes="(max-width: 768px) 90vw, 20vw" alt="User2" loading="lazy" decoding="async">
                 <div>
                     <p>The campus life is vibrant and the faculty is incredibly supportive. Best years of my life!</p>
                     <h3>David Byer</h3>
@@ -151,3 +152,5 @@
 
 </body>
 </html>
+
+

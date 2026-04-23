@@ -83,7 +83,7 @@ ul {
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -93,7 +93,7 @@ ul {
 .sub-header {
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60');
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -220,6 +220,7 @@ p {
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .col-3 {
@@ -513,9 +514,39 @@ h3 {
 }
 
 /* --- Media Queries --- */
+
+/* Tablet and smaller screens */
+@media(max-width: 900px) {
+    .section-padding, .campus, .facilities, .testimonials, .cta, .about-us, 
+    .location, .contact-us, .table-container, .video-container {
+        width: 90%;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .text-box h1 {
+        font-size: 32px;
+    }
+}
+
+/* Mobile devices */
 @media(max-width: 700px) {
-    .text-box h1 { font-size: 20px; }
-    .nav-links ul li { display: block; }
+    nav {
+        padding: 2% 4%;
+    }
+    
+    nav .logo {
+        font-size: 1.2rem;
+    }
+    
+    /* Mobile Menu */
+    .nav-links ul li { 
+        display: block;
+        margin: 15px 0;
+    }
+    
     .nav-links {
         position: absolute;
         background: var(--secondary-color);
@@ -525,10 +556,272 @@ h3 {
         right: -200px;
         text-align: left;
         z-index: 2;
-        transition: 1s;
+        transition: 0.5s;
+        overflow-y: auto;
     }
-    nav .icon { display: block; color: #fff; margin: 10px; font-size: 22px; cursor: pointer; }
-    .nav-links ul { padding: 30px; }
-    .row { flex-direction: column; }
-    .cta h1 { font-size: 24px; }
+    
+    .nav-links.show-menu {
+        right: 0;
+    }
+    
+    nav .icon { 
+        display: block; 
+        color: #fff; 
+        margin: 10px; 
+        font-size: 22px; 
+        cursor: pointer; 
+    }
+    
+    .nav-links ul { 
+        padding: 30px; 
+    }
+    
+    .nav-links ul li a {
+        font-size: 16px;
+    }
+    
+    /* Hero Section */
+    .text-box {
+        width: 95%;
+        top: 45%;
+    }
+    
+    .text-box h1 { 
+        font-size: 20px; 
+        margin-bottom: 10px;
+    }
+    
+    .text-box p {
+        font-size: 12px;
+        margin: 10px 0 20px;
+        line-height: 18px;
+    }
+    
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
+    
+    /* Sections */
+    .section-padding, .campus, .facilities, .testimonials, .about-us, 
+    .location, .contact-us, .table-container, .video-container {
+        width: 95%;
+        padding-top: 50px;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 16px;
+    }
+    
+    p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    /* Grid Columns */
+    .row, .campus-row, .facilities-row, .testimonial-row, .about-row, .contact-row, .stats-row { 
+        flex-direction: column;
+    }
+    
+    .col-3, .campus-col, .facilities-col, .testimonial-col, .about-col, .contact-col, .stats-col {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .testimonial-col {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial-col img {
+        margin: 0 0 15px 0;
+    }
+    
+    /* CTA Section */
+    .cta {
+        margin: 50px auto;
+        width: 95%;
+        padding: 50px 20px;
+    }
+    
+    .cta h1 { 
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    /* About Stats */
+    .about-stats {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .stats-col h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+    
+    /* Sub Header */
+    .sub-header {
+        height: 40vh;
+    }
+    
+    .sub-header h1 {
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    
+    /* Forms */
+    .contact-col div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-col div .icon {
+        font-size: 24px;
+        margin: 5px 0 10px 0;
+    }
+    
+    .contact-col input, .contact-col textarea, .contact-col select {
+        padding: 12px;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+    
+    /* Tables */
+    .content-table {
+        font-size: 0.8em;
+        min-width: 100%;
+    }
+    
+    .content-table th, .content-table td {
+        padding: 8px 10px;
+    }
+    
+    .location iframe {
+        height: 300px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 20px 0;
+    }
+    
+    .footer h4 {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    
+    .icons .social-icon {
+        margin: 0 8px;
+        padding: 12px 0;
+    }
+}
+
+/* Small mobile devices */
+@media(max-width: 500px) {
+    nav {
+        padding: 2% 3%;
+    }
+    
+    nav .logo {
+        font-size: 1rem;
+    }
+    
+    .text-box {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .text-box h1 { 
+        font-size: 16px;
+    }
+    
+    .text-box p {
+        font-size: 11px;
+        margin: 8px 0 15px;
+        line-height: 16px;
+    }
+    
+    .hero-btn {
+        padding: 8px 20px;
+        font-size: 11px;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+    
+    h3 {
+        font-size: 14px;
+    }
+    
+    p {
+        font-size: 11px;
+        line-height: 16px;
+        padding: 5px;
+    }
+    
+    .section-padding, .campus, .facilities, .testimonials, .about-us, 
+    .location, .contact-us, .table-container, .video-container {
+        width: 98%;
+        padding-top: 30px;
+    }
+    
+    .col-3, .campus-col, .facilities-col, .testimonial-col, .about-col, .contact-col {
+        padding: 15px 10px;
+        margin-bottom: 15px;
+    }
+    
+    .nav-links {
+        width: 180px;
+        right: -180px;
+    }
+    
+    .cta {
+        margin: 30px auto;
+        padding: 30px 15px;
+    }
+    
+    .cta h1 { 
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .about-col {
+        flex-basis: 100%;
+    }
+    
+    .contact-col {
+        flex-basis: 100%;
+    }
+    
+    .sub-header {
+        height: 35vh;
+    }
+    
+    .sub-header h1 {
+        margin-top: 30px;
+        font-size: 18px;
+    }
+    
+    .stats-col h1 {
+        font-size: 24px;
+    }
+    
+    .content-table {
+        font-size: 0.7em;
+    }
+    
+    .content-table th, .content-table td {
+        padding: 6px 8px;
+    }
+    
+    .location iframe {
+        height: 250px;
+    }
 }

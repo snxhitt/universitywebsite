@@ -1,4 +1,5 @@
-const CACHE_NAME = 'global-tech-cache-v1';
+const CACHE_NAME = 'global-tech-cache-v2';
+const RUNTIME_CACHE = 'global-tech-runtime';
 
 // Core local assets to cache immediately on install
 const urlsToCache = [
@@ -11,28 +12,26 @@ const urlsToCache = [
   './gallery.html',
   './contact.html',
   './style.css',
-  './script.js'
+  './script.js',
+  './sw.js'
 ];
 
 // Install Event: Pre-cache local assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+      .then(cache => cache.addAll(urlsToCache))
   );
 });
 
-// Activate Event: Clean up old caches if the cache name changes (e.g., v2)
+// Activate Event: Clean up old caches when new cache names appear
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME, RUNTIME_CACHE];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
+          if (!cacheWhitelist.includes(cacheName)) {
             return caches.delete(cacheName);
           }
         })
@@ -41,18 +40,32 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch Event: Cache First, Network Fallback strategy
+// Fetch Event: Cache-first for local assets; runtime cache for images and remote content
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        
-        // Not in cache - fetch from network
-        return fetch(event.request);
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const requestUrl = new URL(event.request.url);
+
+  if (event.request.destination === 'image' || requestUrl.hostname.includes('picsum.photos')) {
+    event.respondWith(
+      caches.open(RUNTIME_CACHE).then(cache => {
+        return cache.match(event.request).then(cachedResponse => {
+          const networkFetch = fetch(event.request).then(networkResponse => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          }).catch(() => cachedResponse);
+          return cachedResponse || networkFetch;
+        });
       })
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
